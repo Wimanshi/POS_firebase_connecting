@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Button } from 'react-native';
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
     render () {
         return (
             <View style={styles.container}>
@@ -9,7 +9,7 @@ export default class LoginForm extends React.Component {
                 <TextInput placeholder="Username or email" placeholderTextColor="rgba(255,255,255,0.8)" returnKeyType="next" keyboardType="email-address" autoCapitalize='none' autoCorrect={false} style={styles.input} onSubmitEditing={() => this.passwordInput.focus()}/>
                 <TextInput placeholder="Password" placeholderTextColor="rgba(255,255,255,0.8)" secureTextEntry returnKeyType="go" style={styles.input} ref={(input) => this.passwordInput = input} />
                 <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText} /*onPress={()=> this.props.navigation.navigate("Profile")}*/ >
+                    <Text style={styles.buttonText} onPress={() => this.props.callback()} >
                         LOGIN
                     </Text>
                 </TouchableOpacity>

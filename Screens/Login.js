@@ -3,15 +3,22 @@ import { StyleSheet, View, Image, Text, KeyboardAvoidingView } from 'react-nativ
 import LoginForm from './LoginForm';
 
 export default class Login extends Component {
+    //remove header
+    static navigationOptions = {
+        headerShown: false,
+        
+    }
+      
+    callback = () => this.props.navigation.navigate('Home');
     render () {
         return (
             <KeyboardAvoidingView behavior="padding" style={styles.container}>
                 <View style={styles.logoContainer}>
-                    <Image style={styles.logo} source={require('../../Images/logo.jpg')} />
+                    <Image style={styles.logo} source={require('../src/Images/logo.jpg')} />
                     <Text style={styles.title}>Welcome to the delivery app</Text>
                 </View>
                 <View style={styles.formContainer}>
-                    <LoginForm />
+                    <LoginForm callback = {this.callback}/>
                 </View>
             </KeyboardAvoidingView>
         );
